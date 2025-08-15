@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Models\City;
-use App\Models\Package;
+use App\Models\User;
 
 class Order extends Model
 {
@@ -26,7 +26,8 @@ class Order extends Model
         return $this->belongsTo(City::class);
     }
 
-    public function packages(): HasMany {
-        return $this->hasMany(Package::class);
+    public function customer(): BelongsTo {
+        return $this->belongsTo(User::class);
     }
+
 }
