@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\DeliveryStatusController;
 use App\Http\Controllers\Api\ReportingContrller;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\DeliveryController;
 
 Route::prefix('v1')->group(function () {
     // Auth
@@ -16,6 +17,7 @@ Route::prefix('v1')->group(function () {
 
     Route::apiResource('packages', PackageController::class);
     Route::apiResource('orders', OrderController::class);
+    Route::apiResource('deliveries', DeliveryController::class);
 
 
     // Route::middleware('auth:api')->group(function () {

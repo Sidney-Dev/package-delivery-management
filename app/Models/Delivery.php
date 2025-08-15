@@ -43,7 +43,5 @@ class Delivery extends Model
     public function packages(): HasMany {
         return $this->hasMany(Package::class);
     }
-    public function histories(): HasMany {
-        return $this->hasMany(DeliveryStatusHistory::class);
-    }
+
 }
