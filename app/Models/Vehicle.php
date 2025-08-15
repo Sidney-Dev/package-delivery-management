@@ -13,8 +13,6 @@ class Vehicle extends Model
 
     protected $fillable = [
         'reg_no',
-        'capacity',
-        'type'
     ];
 
     /**

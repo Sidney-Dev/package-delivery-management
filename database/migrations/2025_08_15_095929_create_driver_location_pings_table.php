@@ -13,14 +13,12 @@ return new class extends Migration
     {
         Schema::create('driver_location_pings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('driver_id')->constrained()->cascadeOnDelete();
             $table->decimal('lat', 10, 7);
             $table->decimal('lng', 10, 7);
             $table->decimal('heading', 6, 2)->nullable();
             $table->decimal('speed', 8, 2)->nullable();
             $table->timestamp('occurred_at')->nullable();
             $table->timestamps();
-            $table->index(['driver_id','created_at']);
         });
     }
 

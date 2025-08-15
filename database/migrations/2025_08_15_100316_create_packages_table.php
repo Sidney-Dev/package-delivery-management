@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Delivery::class)->constrained()->nullOnDelete();
+            $table->foreignIdFor(Delivery::class)->constrained()->cascadeOnDelete();
             $table->string('sku')->nullable();
             $table->decimal('weight', 8, 2)->nullable();
             $table->string('dimensions')->nullable();
-            $table->enum('status', ['in transit', 'delivered', 'returned', 'pending'])->default('pending');
+            $table->enum('status', ['in_transit', 'delivered', 'returned', 'pending'])->default('pending');
             $table->string('return_reason')->nullable();
             $table->foreignId('customer_id')->nullable()->constrained('users', 'id');
             $table->foreignIdFor(City::class)->nullable()->constrained('cities');
