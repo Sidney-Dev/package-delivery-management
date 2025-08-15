@@ -33,18 +33,29 @@ class OrderController extends Controller
 
     public function show(Order $order): JsonResponse
     {
-        return response()->json($order->load('city','packages','customer'));
+        return response()->json([
+            'success' => true,
+            'data' => $order->load('city', 'customer')
+        ]);
     }
 
     public function update(UpdateOrderRequest $request, Order $order): JsonResponse
     {
         $order->update($request->validated());
-        return response()->json(['success'=>true,'data'=>$order]);
+        
+        return response()->json([
+            'success'=> true,
+            'data'=> $order
+        ]);
     }
 
     public function destroy(Order $order): JsonResponse
     {
         $order->delete();
-        return response()->json(['success'=>true,'message'=>'Order deleted']);
+        
+        return response()->json([
+            'success'=> true,
+            'message'=> 'Order deleted'
+        ]);
     }
 }
